@@ -15,7 +15,7 @@
 
     /* ---------- HEADER ---------- */
     header {
-      padding: 24px 32px;
+      padding: 20px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,7 +23,7 @@
 
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 26px;
     }
 
     .tagline {
@@ -32,10 +32,10 @@
     }
 
     nav a {
-      margin-left: 20px;
+      margin-left: 18px;
       color: white;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     nav a:hover {
@@ -46,24 +46,23 @@
     .collage {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: 180px;
-      gap: 16px;
-      padding: 24px 32px 60px;
+      grid-auto-rows: 150px; /* smaller rows */
+      gap: 14px;
+      padding: 20px 28px 50px;
     }
 
     .tile {
       position: relative;
       overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.3s ease;
       cursor: pointer;
+      transition: transform 0.25s ease;
     }
 
     .tile:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
 
+    /* Size hierarchy (smaller than before) */
     .tile.large {
       grid-column: span 3;
       grid-row: span 2;
@@ -79,18 +78,52 @@
       grid-row: span 1;
     }
 
-    /* ---------- HOVER OVERLAY ---------- */
+    /* ---------- COLOR BACKGROUNDS ---------- */
+    .large { background-color: #5b6cff; }
+    .medium { background-color: #3c8d91; }
+    .small { background-color: #c48f5a; }
+
+    /* ---------- IMAGE LAYERS ---------- */
+    .cutout,
+    .full {
+      position: absolute;
+      inset: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .cutout {
+      opacity: 1;
+    }
+
+    .full {
+      opacity: 0;
+      background-size: cover;
+    }
+
+    .tile:hover .cutout {
+      opacity: 0;
+    }
+
+    .tile:hover .full {
+      opacity: 1;
+    }
+
+    /* ---------- HOVER TEXT ---------- */
     .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.65);
+      background: rgba(0,0,0,0.55);
       opacity: 0;
       transition: opacity 0.25s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 18px;
+      padding: 16px;
       text-align: left;
+      z-index: 3;
     }
 
     .tile:hover .overlay {
@@ -98,7 +131,7 @@
     }
 
     .overlay strong {
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 6px;
     }
 
@@ -109,9 +142,9 @@
 
     /* ---------- FOOTER ---------- */
     footer {
-      padding: 20px;
+      padding: 16px;
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
       color: #888;
     }
 
@@ -133,111 +166,102 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div>
-      <h1>Nidhi Shah</h1>
-      <div class="tagline">
-        Mechanical Engineer @ Columbia<br>
-        Space Systems • CAD • Design & Fabrication
-      </div>
+<header>
+  <div>
+    <h1>Nidhi Shah</h1>
+    <div class="tagline">
+      Mechanical Engineer @ Columbia<br>
+      Space Systems • CAD • Design & Fabrication
     </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="engineering.html">Engineering</a>
-      <a href="creative.html">Creative</a>
-      <a href="resume.pdf">Resume</a>
-    </nav>
-  </header>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="engineering.html">Engineering</a>
+    <a href="creative.html">Creative</a>
+    <a href="resume.pdf">Resume</a>
+  </nav>
+</header>
 
-  <!-- COLLAGE -->
-  <main class="collage">
+<main class="collage">
 
-    <!-- LARGE / FEATURED -->
-    <a href="index7.html" class="tile large" style="background-image:url('jpl_cover.jpg')">
-      <div class="overlay">
-        <strong>JPL – Spacecraft ATLO Tooling</strong>
-        <span>Mechanical Engineering Intern</span>
-        <span>NX • Tooling Design • ATLO Ops</span>
-      </div>
-    </a>
+  <!-- BIGGEST -->
+  <a href="index7.html" class="tile large">
+    <div class="cutout" style="background-image:url('jpl_cutout.png')"></div>
+    <div class="full" style="background-image:url('jpl_full.jpg')"></div>
+    <div class="overlay">
+      <strong>JPL – Spacecraft ATLO Tooling</strong>
+      <span>Mechanical Engineering Intern</span>
+      <span>NX • Tooling • ATLO</span>
+    </div>
+  </a>
 
-    <a href="index2.html" class="tile large" style="background-image:url('cubesat.jpg')">
-      <div class="overlay">
-        <strong>CubeSat Mission Lead</strong>
-        <span>End-to-End Spacecraft Development</span>
-        <span>Systems • Leadership • Integration</span>
-      </div>
-    </a>
+  <a href="index2.html" class="tile large">
+    <div class="cutout" style="background-image:url('cubesat_cutout.png')"></div>
+    <div class="full" style="background-image:url('cubesat_full.jpg')"></div>
+    <div class="overlay">
+      <strong>CubeSat Mission Lead</strong>
+      <span>End-to-End Spacecraft Development</span>
+      <span>Systems • Integration • Leadership</span>
+    </div>
+  </a>
 
-    <a href="index9.html" class="tile large" style="background-image:url('robotics_cover.jpg')">
-      <div class="overlay">
-        <strong>Robotics Studio</strong>
-        <span>Mechanical Design & Controls</span>
-        <span>CAD • Prototyping • Systems</span>
-      </div>
-    </a>
+  <!-- MEDIUM -->
+  <a href="index9.html" class="tile medium">
+    <div class="cutout" style="background-image:url('robotics_cutout.png')"></div>
+    <div class="full" style="background-image:url('robotics_full.jpg')"></div>
+    <div class="overlay">
+      <strong>Robotics Studio</strong>
+      <span>Mechanical Design & Prototyping</span>
+    </div>
+  </a>
 
-    <a href="index4.html" class="tile large" style="background-image:url('rascal.jpg')">
-      <div class="overlay">
-        <strong>RASCAL Competition</strong>
-        <span>Team Lead</span>
-        <span>Systems • Integration • Leadership</span>
-      </div>
-    </a>
+  <a href="index4.html" class="tile medium">
+    <div class="cutout" style="background-image:url('rascal_cutout.png')"></div>
+    <div class="full" style="background-image:url('rascal_full.jpg')"></div>
+    <div class="overlay">
+      <strong>RASCAL Competition</strong>
+      <span>Team Lead</span>
+    </div>
+  </a>
 
-    <!-- MEDIUM -->
-    <a href="index3.html" class="tile medium" style="background-image:url('working.jpg')">
-      <div class="overlay">
-        <strong>Formula SAE – Body Lead</strong>
-        <span>Composite Design & Manufacturing</span>
-        <span>CAD • Aero • Fabrication</span>
-      </div>
-    </a>
+  <a href="index3.html" class="tile medium">
+    <div class="cutout" style="background-image:url('fsae_cutout.png')"></div>
+    <div class="full" style="background-image:url('fsae_full.jpg')"></div>
+    <div class="overlay">
+      <strong>Formula SAE – Body Lead</strong>
+      <span>Composite Design & Manufacturing</span>
+    </div>
+  </a>
 
-    <a href="index10.html" class="tile medium" style="background-image:url('machine_design_cover.jpg')">
-      <div class="overlay">
-        <strong>Machine Design</strong>
-        <span>Mechanisms & Analysis</span>
-        <span>CAD • Kinematics • DFM</span>
-      </div>
-    </a>
+  <a href="index10.html" class="tile medium">
+    <div class="cutout" style="background-image:url('machine_cutout.png')"></div>
+    <div class="full" style="background-image:url('machine_full.jpg')"></div>
+    <div class="overlay">
+      <strong>Machine Design</strong>
+      <span>Mechanisms & Analysis</span>
+    </div>
+  </a>
 
-    <a href="index1.html" class="tile medium" style="background-image:url('other.jpg')">
-      <div class="overlay">
-        <strong>L’SPACE Lunar Rover</strong>
-        <span>Systems & Mechanical Design</span>
-        <span>CAD • Trade Studies</span>
-      </div>
-    </a>
+  <a href="index1.html" class="tile medium">
+    <div class="cutout" style="background-image:url('lspace_cutout.png')"></div>
+    <div class="full" style="background-image:url('lspace_full.jpg')"></div>
+    <div class="overlay">
+      <strong>L’SPACE Lunar Rover</strong>
+      <span>Systems & Mechanical Design</span>
+    </div>
+  </a>
 
-    <!-- SMALL / PERSONAL -->
-    <a href="index6.html" class="tile small" style="background-image:url('CubeSat Display.jpg')">
-      <div class="overlay">
-        <strong>CubeSat Display</strong>
-        <span>Physical Design</span>
-      </div>
-    </a>
+  <!-- SMALL -->
+  <a href="index6.html" class="tile small">
+    <div class="cutout" style="background-image:url('display_cutout.png')"></div>
+    <div class="full" style="background-image:url('display_full.jpg')"></div>
+    <div class="overlay">
+      <strong>CubeSat Display</strong>
+    </div>
+  </a>
 
-    <a href="index5.html" class="tile small" style="background-image:url('helicopter.jpg')">
-      <div class="overlay">
-        <strong>Toy Helicopter CAD</strong>
-        <span>Mechanism Design</span>
-      </div>
-    </a>
-
-    <a href="index11.html" class="tile small" style="background-image:url('3dprints.jpg')">
-      <div class="overlay">
-        <strong>Personal 3D Prints & Designs</strong>
-        <span>Rapid Prototyping & CAD</span>
-      </div>
-    </a>
-
-  </main>
-
-  <footer>
-    © 2025 Nidhi Shah
-  </footer>
-
-</body>
-</html>
+  <a href="index5.html" class="tile small">
+    <div class="cutout" style="background-image:url('heli_cutout.png')"></div>
+    <div class="full" style="background-image:url('heli_full.jpg')"></div>
+    <div class="overlay">
+      <strong
