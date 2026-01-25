@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nidhi Shah | Engineering Portfolio</title>
-
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #FFF;
+      background: #fff;
       color: black;
     }
 
@@ -45,8 +44,8 @@
     /* ---------- COLLAGE GRID ---------- */
     .collage {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: 150px; /* smaller rows */
+      grid-template-columns: repeat(8, 1fr);
+      grid-auto-rows: 140px;
       gap: 14px;
       padding: 20px 28px 50px;
     }
@@ -56,88 +55,129 @@
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.25s ease;
+      border-radius: 0; /* sharp corners */
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .tile:hover {
-      transform: scale(1.02);
+      transform: scale(1.05);
+      z-index: 10;
     }
 
-    /* Size hierarchy (smaller than before) */
-    .tile.large {
+    /* ---------- CUSTOM TILE SIZES ---------- */
+    #tile-jpl {
+      grid-column: span 4;
+      grid-row: span 2;
+      aspect-ratio: 16 / 9;
+      background-color: #5b6cff;
+    }
+
+    #tile-cubesat {
+      grid-column: span 3;
+      grid-row: span 3;
+      aspect-ratio: 3 / 4;
+      background-color: #3c8d91;
+    }
+
+    #tile-robotics {
       grid-column: span 3;
       grid-row: span 2;
+      aspect-ratio: 4 / 3;
+      background-color: #3c8d91;
     }
 
-    .tile.medium {
+    #tile-rascal {
+      grid-column: span 2;
+      grid-row: span 3;
+      aspect-ratio: 2 / 3;
+      background-color: #3c8d91;
+    }
+
+    #tile-fsae {
       grid-column: span 2;
       grid-row: span 2;
+      aspect-ratio: 4 / 3;
+      background-color: #3c8d91;
     }
 
+    #tile-machine {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: 4 / 3;
+      background-color: #3c8d91;
+    }
+
+    #tile-lspace {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: 4 / 3;
+      background-color: #3c8d91;
+    }
+
+    /* Small tiles square */
     .tile.small {
       grid-column: span 1;
       grid-row: span 1;
+      aspect-ratio: 1 / 1;
+      background-color: #c48f5a;
     }
-
-    /* ---------- COLOR BACKGROUNDS ---------- */
-    .large { background-color: #5b6cff; }
-    .medium { background-color: #3c8d91; }
-    .small { background-color: #c48f5a; }
 
     /* ---------- IMAGE LAYERS ---------- */
     .cutout,
     .full {
       position: absolute;
       inset: 0;
-      background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       transition: opacity 0.3s ease;
     }
 
     .cutout {
+      background-size: contain;
       opacity: 1;
+      z-index: 1;
     }
 
     .full {
-      opacity: 0;
       background-size: cover;
+      opacity: 0;
+      z-index: 0;
     }
 
     .tile:hover .cutout {
       opacity: 0;
+      z-index: 0;
     }
 
     .tile:hover .full {
       opacity: 1;
+      z-index: 1;
     }
 
-    /* ---------- HOVER TEXT ---------- */
+    /* ---------- OVERLAY TEXT ---------- */
     .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 16px;
-      text-align: left;
-      z-index: 3;
-    }
-
-    .tile:hover .overlay {
-      opacity: 1;
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
     }
 
     .overlay strong {
-      font-size: 15px;
-      margin-bottom: 6px;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
     }
 
     .overlay span {
       font-size: 13px;
-      color: #ddd;
+      display: block;
+      opacity: 0.85;
     }
 
     /* ---------- FOOTER ---------- */
@@ -154,114 +194,148 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .tile.large,
-      .tile.medium,
-      .tile.small {
-        grid-column: span 2;
-        grid-row: span 1;
+      .tile {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+        aspect-ratio: auto !important;
       }
     }
   </style>
 </head>
 
 <body>
-
-<header>
-  <div>
-    <h1>Nidhi Shah</h1>
-    <div class="tagline">
-      Mechanical Engineer @ Columbia<br>
-      Space Systems • CAD • Design & Fabrication
+  <header>
+    <div>
+      <h1>Nidhi Shah</h1>
+      <div class="tagline">
+        Mechanical Engineer @ Columbia<br />
+        Space Systems • CAD • Design & Fabrication
+      </div>
     </div>
-  </div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="engineering.html">Engineering</a>
-    <a href="creative.html">Creative</a>
-    <a href="resume.pdf">Resume</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="engineering.html">Engineering</a>
+      <a href="creative.html">Creative</a>
+      <a href="resume.pdf">Resume</a>
+    </nav>
+  </header>
 
-<main class="collage">
+  <main class="collage">
 
-  <!-- BIGGEST -->
-  <a href="index7.html" class="tile large">
-    <!--<div class="cutout" style="background-image:url('jpl_cutout.png')"></div>-->
-    <div class="full" style="background-image:url('jpl_full.jpg')"></div>
-    <div class="overlay">
-      <strong>JPL – Spacecraft ATLO Tooling</strong>
-      <span>Mechanical Engineering Intern</span>
-      <span>NX • Tooling • ATLO</span>
-    </div>
-  </a>
+    <!-- BIGGEST -->
+    <a href="index7.html" class="tile large" id="tile-jpl">
+      <div class="cutout" style="background-image:url('jpl_cutout.png')"></div>
+      <div class="full" style="background-image:url('jpl_full.jpg')"></div>
+      <div class="overlay">
+        <strong>JPL – Spacecraft ATLO Tooling</strong>
+        <span>Mechanical Engineering Intern</span>
+        <span>NX • Tooling • ATLO</span>
+      </div>
+    </a>
 
-  <a href="index2.html" class="tile large">
-    <div class="cutout" style="background-image:url('cubesat_cutout.png')"></div>
-    <div class="full" style="background-image:url('cubesat_full.jpg')"></div>
-    <div class="overlay">
-      <strong>CubeSat Mission Lead</strong>
-      <span>End-to-End Spacecraft Development</span>
-      <span>Systems • Integration • Leadership</span>
-    </div>
-  </a>
+    <a href="index2.html" class="tile large" id="tile-cubesat">
+      <div class="cutout" style="background-image:url('cubesat_cutout.png')"></div>
+      <div class="full" style="background-image:url('cubesat_full.jpg')"></div>
+      <div class="overlay">
+        <strong>CubeSat Mission Lead</strong>
+        <span>End-to-End Spacecraft Development</span>
+        <span>Systems • Integration • Leadership</span>
+      </div>
+    </a>
 
-  <!-- MEDIUM -->
-  <a href="index9.html" class="tile medium">
-    <div class="cutout" style="background-image:url('robotics_cutout.png')"></div>
-    <div class="full" style="background-image:url('robotics_full.jpg')"></div>
-    <div class="overlay">
-      <strong>Robotics Studio</strong>
-      <span>Mechanical Design & Prototyping</span>
-    </div>
-  </a>
+    <!-- MEDIUM -->
+    <a href="index9.html" class="tile medium" id="tile-robotics">
+      <div class="cutout" style="background-image:url('robotics_cutout.png')"></div>
+      <div class="full" style="background-image:url('robotics_full.jpg')"></div>
+      <div class="overlay">
+        <strong>Robotics Studio</strong>
+        <span>Mechanical Design & Prototyping</span>
+      </div>
+    </a>
 
-  <a href="index4.html" class="tile medium">
-    <div class="cutout" style="background-image:url('rascal_cutout.png')"></div>
-    <div class="full" style="background-image:url('rascal_full.jpg')"></div>
-    <div class="overlay">
-      <strong>RASCAL Competition</strong>
-      <span>Team Lead</span>
-    </div>
-  </a>
+    <a href="index4.html" class="tile medium" id="tile-rascal">
+      <div class="cutout" style="background-image:url('rascal_cutout.png')"></div>
+      <div class="full" style="background-image:url('rascal_full.jpg')"></div>
+      <div class="overlay">
+        <strong>RASCAL Competition</strong>
+        <span>Team Lead</span>
+      </div>
+    </a>
 
-  <a href="index3.html" class="tile medium">
-    <div class="cutout" style="background-image:url('fsae_cutout.png')"></div>
-    <div class="full" style="background-image:url('fsae_full.jpg')"></div>
-    <div class="overlay">
-      <strong>Formula SAE – Body Lead</strong>
-      <span>Composite Design & Manufacturing</span>
-    </div>
-  </a>
+    <a href="index3.html" class="tile medium" id="tile-fsae">
+      <div class="cutout" style="background-image:url('fsae_cutout.png')"></div>
+      <div class="full" style="background-image:url('fsae_full.jpg')"></div>
+      <div class="overlay">
+        <strong>Formula SAE – Body Lead</strong>
+        <span>Composite Design & Manufacturing</span>
+      </div>
+    </a>
 
-  <a href="index10.html" class="tile medium">
-    <div class="cutout" style="background-image:url('machine_cutout.png')"></div>
-    <div class="full" style="background-image:url('machine_full.jpg')"></div>
-    <div class="overlay">
-      <strong>Machine Design</strong>
-      <span>Mechanisms & Analysis</span>
-    </div>
-  </a>
+    <a href="index10.html" class="tile medium" id="tile-machine">
+      <div class="cutout" style="background-image:url('machine_cutout.png')"></div>
+      <div class="full" style="background-image:url('machine_full.jpg')"></div>
+      <div class="overlay">
+        <strong>Machine Design</strong>
+        <span>Mechanisms & Analysis</span>
+      </div>
+    </a>
 
-  <a href="index1.html" class="tile medium">
-    <div class="cutout" style="background-image:url('lspace_cutout.png')"></div>
-    <div class="full" style="background-image:url('lspace_full.jpg')"></div>
-    <div class="overlay">
-      <strong>L’SPACE Lunar Rover</strong>
-      <span>Systems & Mechanical Design</span>
-    </div>
-  </a>
+    <a href="index1.html" class="tile medium" id="tile-lspace">
+      <div class="cutout" style="background-image:url('lspace_cutout.png')"></div>
+      <div class="full" style="background-image:url('lspace_full.jpg')"></div>
+      <div class="overlay">
+        <strong>L’SPACE Lunar Rover</strong>
+        <span>Systems & Mechanical Design</span>
+      </div>
+    </a>
 
-  <!-- SMALL -->
-  <a href="index6.html" class="tile small">
-    <div class="cutout" style="background-image:url('display_cutout.png')"></div>
-    <div class="full" style="background-image:url('display_full.jpg')"></div>
-    <div class="overlay">
-      <strong>CubeSat Display</strong>
-    </div>
-  </a>
+    <!-- SMALL -->
+    <a href="index6.html" class="tile small">
+      <div class="cutout" style="background-image:url('display_cutout.png')"></div>
+      <div class="full" style="background-image:url('display_full.jpg')"></div>
+      <div class="overlay">
+        <strong>CubeSat Display</strong>
+      </div>
+    </a>
 
-  <a href="index5.html" class="tile small">
-    <div class="cutout" style="background-image:url('heli_cutout.png')"></div>
-    <div class="full" style="background-image:url('heli_full.jpg')"></div>
-    <div class="overlay">
-      <strong
+    <a href="index5.html" class="tile small">
+      <div class="cutout" style="background-image:url('heli_cutout.png')"></div>
+      <div class="full" style="background-image:url('heli_full.jpg')"></div>
+      <div class="overlay">
+        <strong>Toy Helicopter CAD</strong>
+      </div>
+    </a>
+
+    <a href="index8.html" class="tile small">
+      <div class="cutout" style="background-image:url('3dprints_cutout.png')"></div>
+      <div class="full" style="background-image:url('3dprints_full.jpg')"></div>
+      <div class="overlay">
+        <strong>Personal 3D Prints & Designs</strong>
+      </div>
+    </a>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Nidhi Shah
+  </footer>
+
+  <script>
+    // JS for hover image swap if you want to handle dynamically
+    document.querySelectorAll('.tile').forEach(tile => {
+      tile.addEventListener('mouseenter', () => {
+        const cutout = tile.querySelector('.cutout');
+        const full = tile.querySelector('.full');
+        if (cutout) cutout.style.opacity = '0';
+        if (full) full.style.opacity = '1';
+      });
+      tile.addEventListener('mouseleave', () => {
+        const cutout = tile.querySelector('.cutout');
+        const full = tile.querySelector('.full');
+        if (cutout) cutout.style.opacity = '1';
+        if (full) full.style.opacity = '0';
+      });
+    });
+  </script>
+</body>
+</html>
