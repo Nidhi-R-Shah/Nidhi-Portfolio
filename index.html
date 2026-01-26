@@ -134,28 +134,37 @@
       background-color: #c48f5a;
     }
 
-    /* ---------- IMAGE LAYERS (TRANSPARENT IMAGES) ---------- */
-  .cutout,
-  .full {
-    position: absolute;
-    inset: 0;
-    object-fit: contain;
-    padding: 12px;
-    transition: opacity 0.3s ease;
-  }
+/* ---------- IMAGE LAYERS (TRANSPARENT IMAGES – FIXED) ---------- */
+.tile img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 85%;
+  max-height: 85%;
+  width: auto;
+  height: auto;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
 
-  .cutout {
-    opacity: 1;
-    z-index: 1;
-  }
+.cutout {
+  opacity: 1;
+  z-index: 1;
+}
 
-  .full {
-    opacity: 0;
-    z-index: 0;
-  }
+.full {
+  opacity: 0;
+  z-index: 1;
+}
 
-  .tile:hover .cutout { opacity: 0; }
-  .tile:hover .full   { opacity: 1; }
+.tile:hover .cutout {
+  opacity: 0;
+}
+
+.tile:hover .full {
+  opacity: 1;
+}
 
 
     /* ---------- MOBILE ---------- */
