@@ -131,40 +131,29 @@
       background-color: #c48f5a;
     }
 
-    /* ---------- IMAGE LAYERS ---------- */
-    .cutout,
-    .full {
-      position: absolute;
-      inset: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      transition: opacity 0.3s ease;
-    }
+    /* ---------- IMAGE LAYERS (TRANSPARENT IMAGES) ---------- */
+  .cutout,
+  .full {
+    position: absolute;
+    inset: 0;
+    object-fit: contain;
+    padding: 12px;
+    transition: opacity 0.3s ease;
+  }
 
-    .cutout { opacity: 1; z-index: 1; }
-    .full   { opacity: 0; z-index: 0; }
+  .cutout {
+    opacity: 1;
+    z-index: 1;
+  }
 
-    .tile:hover .cutout { opacity: 0; }
-    .tile:hover .full   { opacity: 1; }
+  .full {
+    opacity: 0;
+    z-index: 0;
+  }
 
-    /* ---------- TEXT ---------- */
-    .overlay {
-      position: relative;
-      z-index: 2;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.75);
-    }
+  .tile:hover .cutout { opacity: 0; }
+  .tile:hover .full   { opacity: 1; }
 
-    .overlay strong {
-      font-size: 16px;
-      display: block;
-    }
-
-    .overlay span {
-      font-size: 13px;
-      opacity: 0.9;
-      display: block;
-    }
 
     /* ---------- MOBILE ---------- */
     @media (max-width: 900px) {
@@ -200,7 +189,7 @@
 
 <main class="collage">
   <a href="index7.html" class="tile" id="tile-jpl">
-    <div class="cutout" style="background-image:url('jpl_cutout.png')"></div>
+    <img class="cutout" src="jpl_cutout.png" alt="">
     <div class="full" style="background-image:url('jpl_full.jpg')"></div>
     <div class="overlay">
       <strong>JPL – Spacecraft ATLO Tooling</strong>
