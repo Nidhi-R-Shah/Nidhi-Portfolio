@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nidhi Shah | Engineering Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: black;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #777;
+    }
+
+    nav a {
+      margin-left: 18px;
+      color: black;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- GRID ---------- */
+    .collage {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-auto-rows: 160px;
+      gap: 15px;
+      padding: 20px 28px 50px;
+    }
+
+    .tile {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .tile:hover {
+      transform: scale(1.04);
+      z-index: 5;
+    }
+
+    /* ---------- TILE PLACEMENT ---------- */
+    #tile-jpl {
+      grid-column: 1 / 4;
+      grid-row: 1 / 4;
+      background-color: #FF873D;
+    }
+    #tile-jpl img {
+      padding: 0px;
+    }
+
+    #tile-cubesat {
+      grid-column: 4 / 6;
+      grid-row: 1 / 3;
+      background-color: #FF873D;
+    }
+    /* #tile-cubesat img {
+      padding: 0px;
+    } */
+
+    #tile-robotics {
+      grid-column: 6 / 10;
+      grid-row: 1 / 3;
+      background-color: #FF873D;
+    }
+    #tile-robotics img {
+      padding: 0px;
+    }
+
+    #tile-rascal {
+      grid-column: 5 / 7;
+      grid-row: 3 / 6;
+      background-color: #3c8d91;
+    }
+    #tile-rascal img {
+      padding: 0px;
+    }
+
+    #tile-fsae {
+      grid-column: 7 / 10;
+      grid-row: 3 / 5;
+      background-color: #3c8d91;
+    }
+    #tile-fsae img {
+      padding: 0px;
+    }
+
+    #tile-machine {
+      grid-column: 1 / 3;
+      grid-row: 4 / 6;
+      background-color: #3c8d91;
+    }
+    #tile-machine img {
+      padding: 0px;
+    }
+
+    #tile-lspace {
+      grid-column: 3 / 5;
+      grid-row: 4 / 6;
+      background-color: #3c8d91;
+    }
+    #tile-lspace img {
+      padding: 0px;
+    }
+
+    #tile-display {
+      grid-column: 7 / 8;
+      grid-row: 5 / 6;
+      background-color: #c48f5a;
+    }
+    #tile-display img {
+      padding: 0px;
+    }
+
+    #tile-heli {
+      grid-column: 8 / 10;
+      grid-row: 5 / 6;
+      background-color: #c48f5a;
+    }
+    #tile-heli img {
+      padding: 0px;
+    }
+
+    #tile-prints {
+      grid-column: 4 / 5;
+      grid-row: 3 / 4;
+      background-color: #c48f5a;
+    }
+    #tile-prints img {
+      padding: 0px;
+    }
+
+/* ---------- IMAGE LAYERS (TRANSPARENT IMAGES – FIXED) ---------- */
+/* Default: only applies to CUTOUT images */
+.tile img.cutout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 85%;
+  max-height: 85%;
+  width: auto;
+  height: auto;
+
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* FULL images should fill the entire tile */
+.tile .full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cutout { 
+  opacity: 1; 
+  z-index: 1; 
+}
+
+.full { 
+  opacity: 0; 
+  z-index: 1;
+}
+
+.tile:hover .cutout { opacity: 0; }
+.tile:hover .full { opacity: 1; }
+
+.overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- VIDEO FULL HOVER FIX ---------- */
+
+.video-full video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* fills tile like an image */
+  object-position: center;
+  display: block;
+}
+
+
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 900px) {
+      .collage {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tile {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div>
+    <h1>Nidhi Shah</h1>
+    <div class="tagline">
+      Mechanical Engineering Senior @ Columbia<br>
+      Space Systems • CAD • Rapid Prototyping
+    </div>
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="art\creative.html">Creative</a>
+    <a href="Nidhi_Shah_Resume.pdf">Resume</a>
+  </nav>
+</header>
+
+<main class="collage">
+  <a href="jpl\index7.html" class="tile" id="tile-jpl">
+    <img class="cutout" src="jpl\jpl_cutout.png" alt="">
+    <img class="full" src="jpl\jpl_full.jpg" alt="">
+    <div class="overlay">
+      <strong>JPL - Mars Mission ATLO Tooling</strong>
+      <span>Spacecraft Mechanical Engineering Intern</span>
+    </div>
+  </a>
+
+  <a href="cubesat\index2.html" class="tile" id="tile-cubesat">
+    <img class="cutout" src="cubesat\cubesat_cutout.png" alt="">
+    <img class="full" src="cubesat\cube_full_me.jpg" alt="">
+    <div class="overlay">
+      <strong>CubeSat</strong>
+      <span>Mission Lead</span>
+    </div>
+  </a>
+
+  <a href="robot\index9.html" class="tile" id="tile-robotics">
+    <img class="cutout" src="robot\robot_cutout.png" alt="">
+    <img class="full" src="robot\robot_building.jpg" alt="">
+    <div class="overlay">
+      <strong>Robotics Studio</strong>
+    </div>
+  </a>
+
+  <a href="rascal\index4.html" class="tile" id="tile-rascal">
+    <img class="cutout" src="rascal\rascal_cutout.png" alt="">
+    <img class="full" src="rascal\rascal_full.jpg" alt="">
+    <div class="overlay">
+      <strong>RASCAL Competition Proposal</strong>
+      <span>Team Lead</span>
+    </div>
+  </a>
+
+  <a href="fsae\index3.html" class="tile" id="tile-fsae">
+    <img class="cutout" src="fsae\fsae_cutout.png" alt="">
+    <img class="full" src="fsae\working.jpg" alt="">
+    <div class="overlay">
+      <strong>Formula SAE – Body Lead</strong>
+    </div>
+  </a>
+
+  <a href="machine\index10.html" class="tile" id="tile-machine">
+    <img class="cutout" src="machine\machine_cutout.png" alt="">
+    <div class="full video-full">
+    	<video autoplay loop muted playsinline>
+      	    <source src="machine/machine_working.mp4" type="video/mp4">
+    	</video>
+  </div>
+    <div class="overlay">
+      <strong>Machine Design</strong>
+    </div>
+  </a>
+
+  <a href="lspace\index1.html" class="tile" id="tile-lspace">
+    <img class="cutout" src="lspace\lspace_cutout.png" alt="">
+    <img class="full" src="lspace\lspace_cutout.png" alt="">
+    <div class="overlay">
+      <strong>L’SPACE Lunar Rover</strong>
+      <span>Lead Systems Engineer</span>
+    </div>
+  </a>
+
+  <a href="display\index6.html" class="tile" id="tile-display">
+    <img class="cutout" src="display\display_cutout.png" alt="">
+    <img class="full" src="display\display_cutout.png" alt="">
+    <div class="overlay"><strong>CubeSat Display</strong></div>
+  </a>
+
+  <a href="heli\index5.html" class="tile" id="tile-heli">
+    <img class="cutout" src="heli\heli_cutout.png" alt="">
+    <img class="full" src="heli\heli_cutout.png" alt="">
+    <div class="overlay"><strong>Toy Helicopter CAD</strong></div>
+  </a>
+
+  <a href="etc\index8.html" class="tile" id="tile-prints">
+    <img class="cutout" src="etc\prints_cutout.png" alt="">
+    <img class="full" src="etc\etc_full.jpg" alt="">
+    <div class="overlay"><strong>3D Prints & Designs</strong></div>
+  </a>
+</main>
+</body>
+</html>
