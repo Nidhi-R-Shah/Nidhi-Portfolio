@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunar Rover Mission Proposal</title>
+
+<style>
+:root {
+  --orange: #FF873D;
+  --teal: #3c8d91;
+  --white:#FFF
+  --tan: #c48f5a;
+  --ink: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin-bottom: 14px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+
+.back-home:hover {
+  background: #f5f5f5;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 18px;
+  max-width: 520px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- PANEL ---------- */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.right {
+  flex-direction: row-reverse;
+}
+
+/* subtle stagger (still comic, but restrained) */
+.panel:nth-child(odd) {
+  margin-left: 8px;
+}
+.panel:nth-child(even) {
+  margin-right: 8px;
+}
+
+/* ---------- IMAGE ---------- */
+.panel-image {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.panel.orange .panel-image { background: var(--orange); }
+.panel.tan .panel-image { background: var(--tan); }
+
+.panel-image img,
+.panel-image video {
+  width: 100%;
+  display: block;
+}
+
+.panel-image iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+/* ---------- MULTI IMAGE PANEL ---------- */
+.panel-gallery {
+  display: flex;
+  gap: 10px;
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.panel-gallery img,
+.panel-gallery video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border: 0px solid var(--ink);
+}
+
+/* 2 images */
+.panel-gallery.two > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.three > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.four > * {
+  flex: 1;
+}
+
+/* Mobile: stack instead */
+@media (max-width: 720px) {
+  .panel-gallery {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.panel.triple {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.triple .panel-image {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel.triple .panel-caption {
+  flex: 1;
+  max-width: none;
+}
+
+
+
+
+/* ---------- CAPTION ---------- */
+.panel-caption {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* ---------- CAPTION STACK ---------- */
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Small image row under caption */
+.caption-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.caption-thumbs img {
+  width: 100%;
+  flex: 1;
+  border: 0px solid var(--ink);
+  object-fit: cover;
+  display: block;
+  height: 130px;
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel.right {
+    flex-direction: column;
+  }
+
+  .panel-image {
+    width: 100%;
+  }
+
+  .panel-caption {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="../index.html" class="back-home">← Home</a>
+    <div class="breadcrumb">Home / L'Space</div>
+  </div>
+
+  <h1>Lunar South Pole Rover Mission Concept (L’SPACE)</h1>
+  <div class="subtitle">
+Mission architecture and rover design for volatile detection in permanently shadowed regions at the Moon’s south pole.
+  </div>
+
+  <div class="story">
+
+<!-- PANEL 1 -->
+    <section class="panel right">
+      <div class="panel-image">
+    	<img src="lspace_cutout.png" alt="Press-fit installation demo">
+      </div>
+    
+<div class="panel-caption">
+During NASA’s L’SPACE Mission Concept Academy, my team developed a Discovery-class lunar prospecting mission concept focused on detecting volatiles in permanently shadowed regions near the Moon’s south pole.
+
+We produced a full mission design package across MCR, SRR, MDR, and PDR-level reviews, culminating in a 140-page <a href="https://drive.google.com/file/d/1rPld5aanLc38dAyj1mtYznI5jVBcM1mf/view?usp=sharing">Preliminary Design Review report</a> under a $175M cost cap.
+
+As Lead Systems Engineer, I coordinated subsystem development across the team, managed task flow and requirements tracking in Notion, and led major portions of the mechanical architecture, CAD modeling, and power/thermal trade studies. Our work emphasized science-driven design, feasibility within mass and volume constraints, and mission readiness through verification planning.
+
+      </div>
+
+</div>
+    </section>
+
+<div class="panel-caption">
+Early rover architecture development, including suspension geometry, deployable packaging, and mass-informed chassis design for operation in extreme lunar terrain.
+
+      </div>
+    <!-- PANEL 1 -->
+    <section class="panel white">
+        <div class="panel-gallery two">
+	<img src="lspace_cad_2.png" alt="">
+	<img src="lspace_wheel.png" alt="">
+      </div>
+    </section>
+
+    <!-- PANEL 3 -->
+    <section class="panel white">
+      <div class="panel-image">
+    	<img src="lspace_block.png" alt="Press-fit installation demo">
+      </div>
+      <div class="panel-caption caption-stack">
+We began by developing a Science Traceability Matrix to connect exploration goals to measurable science objectives, payload requirements, and rover-level constraints.
+
+I led rover CAD development using simplified but mass-accurate models for COTS components and subsystem packaging.
+
+A key challenge was closing within the 80 kg rover mass budget and a 1.5 m³ stowed volume constraint. I incorporated structural cutouts and an efficient suspension layout to reduce mass while maintaining mobility in polar terrain.
+
+As systems lead, I also developed integration architecture products including the mission block diagram and N² chart to ensure clear subsystem interfaces and functional flowdown.
+
+
+       </div>
+    </section>
+
+    <!-- PANEL 4 -->
+    <section class="panel right white">
+      <div class="panel-image">
+        <img src="lspace_jmars.png" alt="">
+      </div>
+      <div class="panel-caption">
+The rover concept targets permanently shadowed regions at the lunar south pole, where volatile deposits are most likely to persist.
+
+I developed the mission CONOPS and traverse plan using JMARS, selecting candidate science sites and operational waypoints to balance terrain accessibility, thermal constraints, and science return. 
+          
+      </div>
+    </section>
+
+    <!-- PANEL 4 -->
+    <section class="panel white">
+      <div class="panel-image">
+        <img src="lspace_conops.png" alt="">
+      </div>
+      <div class="panel-caption">
+            In addition to technical design, I developed programmatic planning products including manufacturer sourcing, component lead-time estimates, and qualification testing flow.
+
+These plans were driven directly by mission requirements and environmental constraints, ensuring the concept remained executable within cost, schedule, and verification expectations.
+
+Our team presented the final mission architecture during a formal <a href="https://drive.google.com/file/d/11cPwFD8VRTnJ33BvH1dEMPdC6ep5t64T/view?usp=sharing">PDR-style design review</a>.
+
+      </div>
+    </section>
+    
+  </div>
+
+</main>
+</body>
+</html>

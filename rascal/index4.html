@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunar Rover Mission Proposal</title>
+
+<style>
+:root {
+  --orange: #FF873D;
+  --teal: #3c8d91;
+  --white:#FFF
+  --tan: #c48f5a;
+  --ink: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin-bottom: 14px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+
+.back-home:hover {
+  background: #f5f5f5;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 18px;
+  max-width: 520px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- PANEL ---------- */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.right {
+  flex-direction: row-reverse;
+}
+
+/* subtle stagger (still comic, but restrained) */
+.panel:nth-child(odd) {
+  margin-left: 8px;
+}
+.panel:nth-child(even) {
+  margin-right: 8px;
+}
+
+/* ---------- IMAGE ---------- */
+.panel-image {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.panel.orange .panel-image { background: var(--orange); }
+.panel.tan .panel-image { background: var(--tan); }
+
+.panel-image img,
+.panel-image video {
+  width: 100%;
+  display: block;
+}
+
+.panel-image iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+/* ---------- MULTI IMAGE PANEL ---------- */
+.panel-gallery {
+  display: flex;
+  gap: 10px;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel-gallery img,
+.panel-gallery video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border: 0px solid var(--ink);
+}
+
+/* 2 images */
+.panel-gallery.two > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.three > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.four > * {
+  flex: 1;
+}
+
+/* Mobile: stack instead */
+@media (max-width: 720px) {
+  .panel-gallery {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.panel.triple {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.triple .panel-image {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel.triple .panel-caption {
+  flex: 1;
+  max-width: none;
+}
+
+
+
+
+/* ---------- CAPTION ---------- */
+.panel-caption {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* ---------- CAPTION STACK ---------- */
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Small image row under caption */
+.caption-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.caption-thumbs img {
+  width: 100%;
+  flex: 1;
+  border: 0px solid var(--ink);
+  object-fit: cover;
+  display: block;
+  height: 130px;
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel.right {
+    flex-direction: column;
+  }
+
+  .panel-image {
+    width: 100%;
+  }
+
+  .panel-caption {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="../index.html" class="back-home">← Home</a>
+    <div class="breadcrumb">Home / RASC-AL</div>
+  </div>
+
+  <h1>NASA RASC-AL Lunar Crater Prospecting Mission Proposal</h1>
+  <div class="subtitle">
+Team-led systems architecture and competition proposal development for a tethered multi-element lunar exploration concept.
+  </div>
+
+  <div class="story">
+
+<!-- PANEL 1 -->
+    <section class="panel right">
+      <div class="panel-image">
+    	<img src="rascal_patch.png" alt="Press-fit installation demo">
+      </div>
+    
+<div class="panel-caption">
+For the NASA RASC-AL proposal competition, I led the development of a large-scale crater prospecting mission concept designed for extreme lunar south pole terrain.  
+Rather than relying on a single rover architecture, our team proposed a multi-element tethered system: a crater-rim power and communications base, twin mobile prospectors for volatile scouting, and a transport module to shuttle samples between the rim and permanently shadowed regions.  
+This experience emphasized early-stage mission architecture, systems integration, and communicating a feasible concept under real competition constraints.
+      </div>
+
+</div>
+    </section>
+
+<div class="panel-caption">
+    I produced many of the mission visuals, including CAD renderings, subsystem layouts, and block-level architecture diagrams used throughout the proposal package.
+      </div>
+    <!-- PANEL 1 -->
+    <section class="panel white">
+        <div class="panel-gallery four">
+	<img src="rascal_cad_1.png" alt="">
+	<img src="rascal_cad_2.png" alt="">
+	<img src="rascal_cad_3.png" alt="">
+	<img src="rascal_cad_4.png" alt="">
+      </div>
+    </section>
+
+    <!-- PANEL 3 -->
+    <section class="panel white">
+      <div class="panel-image">
+    	<img src="rascal_conops.png" alt="Press-fit installation demo">
+      </div>
+      <div class="panel-caption caption-stack">
+As team lead, I learned how critical structure and accountability are in long-term engineering proposal work.  
+Because the competition deadline was months away with no intermediate milestones, I created a detailed Gantt-based schedule with internal design reviews and buffer periods to prevent last-minute cramming.  
+
+I focused heavily on building ownership across the team by delegating subsystem responsibility, encouraging independent initiative, and creating an environment where members felt invested in the mission’s success.  
+
+Under my leadership, our team grew to more than double its original size, supported by an encouraging culture of collaboration, technical ambition, and consistent communication.  
+
+In parallel, I contributed directly to rover CAD, mission budgets (mass, power, volume, cost), and systems-level integration across the architecture.
+       </div>
+    </section>
+
+    <!-- PANEL 4 -->
+    <section class="panel right white">
+      <div class="panel-image">
+        <img src="jumping.jpg" alt="">
+      </div>
+      <div class="panel-caption">
+In addition to engineering development, I created key proposal deliverables to communicate our concept clearly, including the mission patch design and helped with a mission operations video.  
+
+I also gained experience reaching out to external experts for feedback and technical input, strengthening the realism of our architecture and assumptions.  
+
+By the end of the competition cycle, our expanded team produced a complete <a href="https://drive.google.com/file/d/1oARDCXOBi46cblFoVZK1lpCxjZWhaCyj/view?usp=sharing">written proposal</a> and <a href="https://youtu.be/-Q6fhrn0m48?si=eczEvp5yEa2vtdBs">mission concept video</a> submission.
+          
+      </div>
+    </section>
+
+      </div>
+
+</main>
+</body>
+</html>

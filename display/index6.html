@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunar Rover Mission Proposal</title>
+
+<style>
+:root {
+  --orange: #FF873D;
+  --teal: #3c8d91;
+  --white:#FFF
+  --tan: #c48f5a;
+  --ink: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin-bottom: 14px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+
+.back-home:hover {
+  background: #f5f5f5;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 18px;
+  max-width: 520px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- PANEL ---------- */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.right {
+  flex-direction: row-reverse;
+}
+
+/* subtle stagger (still comic, but restrained) */
+.panel:nth-child(odd) {
+  margin-left: 8px;
+}
+.panel:nth-child(even) {
+  margin-right: 8px;
+}
+
+/* ---------- IMAGE ---------- */
+.panel-image {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.panel.orange .panel-image { background: var(--orange); }
+.panel.tan .panel-image { background: var(--tan); }
+
+.panel-image img,
+.panel-image video {
+  width: 100%;
+  display: block;
+}
+
+.panel-image iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+.panel.full {
+  flex-direction: column;
+}
+
+.full-image {
+  width: 100%;
+  border: 1.5px solid var(--ink);
+}
+
+.full-image img {
+  width: 100%;
+  display: block;
+}
+
+
+/* ---------- MULTI IMAGE PANEL ---------- */
+.panel-gallery {
+  display: flex;
+  gap: 10px;
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.panel-gallery img,
+.panel-gallery video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border: 0px solid var(--ink);
+}
+
+/* 2 images */
+.panel-gallery.two > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.three > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.four > * {
+  flex: 1;
+}
+
+/* Mobile: stack instead */
+@media (max-width: 720px) {
+  .panel-gallery {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.panel.triple {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.triple .panel-image {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel.triple .panel-caption {
+  flex: 1;
+  max-width: none;
+}
+
+
+
+
+/* ---------- CAPTION ---------- */
+.panel-caption {
+  max-width: 900px;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* ---------- CAPTION STACK ---------- */
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Small image row under caption */
+.caption-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.caption-thumbs img {
+  width: 100%;
+  flex: 1;
+  border: 0px solid var(--ink);
+  object-fit: cover;
+  display: block;
+  height: 130px;
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel.right {
+    flex-direction: column;
+  }
+
+  .panel-image {
+    width: 100%;
+  }
+
+  .panel-caption {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="../index.html" class="back-home">← Home</a>
+    <div class="breadcrumb">Home / CubeSat Display</div>
+  </div>
+
+  <h1>CubeSat Mission Control Interface Design</h1>
+  <div class="subtitle">
+Human-centered command and telemetry interface designed through iterative operator testing.  </div>
+
+  <div class="story">
+
+<!-- PANEL 1 -->
+    <section class="panel full">
+  <div class="full-image">
+    <img src="CubeSat Display.jpg" alt="CubeSat mission control display">
+  </div>
+    
+<div class="panel-caption">
+<p>
+    For Aerospace Human Factors Engineering, I worked on a team of four to design a mission control interface for monitoring and commanding a CubeSat spacecraft. The display was developed as a general ground control prototype, with planned adaptation for Columbia’s upcoming CubeSat missions.
+  </p>
+
+  <p>
+    We iterated through multiple interface concepts and control schemes, including touchscreen interaction, keyboard-based commanding, and structured pseudocode inputs, based on feedback from CubeSat team members as our target user group.
+  </p>
+
+  <p>
+    Using a modified Cooper-Harper evaluation scale, we assessed workload, usability, and operator confidence across display layouts (integrated vs. separated telemetry views) to converge on an effective command-and-monitoring workflow.
+  </p>
+
+  <p>
+    The final interface visualizes spacecraft position, attitude, thermal state, and telemetry trends, while providing a configurable command window for real-time mission operations.
+  </p>
+
+  <p>
+    You can view our final <a href="Astro Girls MECE E4811 Final Report">project paper</a> and 
+    <a href="Final Aero Presentation_ Astro Girls">presentation</a> for additional design rationale and testing results.
+  </p>
+      </div>
+
+    </section>
+
+    
+  </div>
+
+</main>
+</body>
+</html>
