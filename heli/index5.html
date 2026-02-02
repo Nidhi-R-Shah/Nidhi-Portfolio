@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunar Rover Mission Proposal</title>
+
+<style>
+:root {
+  --orange: #FF873D;
+  --teal: #3c8d91;
+  --white:#FFF
+  --tan: #c48f5a;
+  --ink: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin-bottom: 14px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+
+.back-home:hover {
+  background: #f5f5f5;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 18px;
+  max-width: 520px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- PANEL ---------- */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.right {
+  flex-direction: row-reverse;
+}
+
+/* subtle stagger (still comic, but restrained) */
+.panel:nth-child(odd) {
+  margin-left: 8px;
+}
+.panel:nth-child(even) {
+  margin-right: 8px;
+}
+
+/* ---------- IMAGE ---------- */
+.panel-image {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.panel.orange .panel-image { background: var(--orange); }
+.panel.tan .panel-image { background: var(--tan); }
+
+.panel-image img,
+.panel-image video {
+  width: 100%;
+  display: block;
+}
+
+.panel-image iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+/* ---------- MULTI IMAGE PANEL ---------- */
+.panel-gallery {
+  display: flex;
+  gap: 10px;
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.panel-gallery img,
+.panel-gallery video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border: 0px solid var(--ink);
+}
+
+/* 2 images */
+.panel-gallery.two > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.three > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.four > * {
+  flex: 1;
+}
+
+/* Mobile: stack instead */
+@media (max-width: 720px) {
+  .panel-gallery {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.panel.triple {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.triple .panel-image {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel.triple .panel-caption {
+  flex: 1;
+  max-width: none;
+}
+
+
+
+
+/* ---------- CAPTION ---------- */
+.panel-caption {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* ---------- CAPTION STACK ---------- */
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Small image row under caption */
+.caption-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.caption-thumbs img {
+  width: 100%;
+  flex: 1;
+  border: 0px solid var(--ink);
+  object-fit: cover;
+  display: block;
+  height: 130px;
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel.right {
+    flex-direction: column;
+  }
+
+  .panel-image {
+    width: 100%;
+  }
+
+  .panel-caption {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="../index.html" class="back-home">← Home</a>
+    <div class="breadcrumb">Home / Helicopter CAD</div>
+  </div>
+
+  <h1>Toy Helicopter CAD Modeling & Drawing Package</h1>
+  <div class="subtitle">
+SolidWorks modeling project focused on accurate geometry and engineering drawings.  </div>
+
+  <div class="story">
+
+<!-- PANEL 1 -->
+    <section class="panel right">
+      <div class="panel-image">
+    	<img src="heli_toy.png" alt="Press-fit installation demo">
+      </div>
+    
+<div class="panel-caption">
+  Reverse-engineered CAD model of a toy helicopter, created in SolidWorks using a physical reference object, measured dimensions, and multi-view photo documentation.
+
+      </div>
+
+</div>
+    </section>
+
+<section class="panel white">
+      <div class="panel-image">
+    	<img src="heli_cutout.png" alt="Press-fit installation demo">
+      </div>
+    
+<div class="panel-caption">
+              As part of a Computer Graphics and Design midterm project, I developed a fully detailed 3D model by first planning the build strategy, collecting key measurements, and then constructing complex geometry using surface lofts, sweeps, and precision extrusions.
+
+
+      </div>
+
+</div>
+    </section>
+
+<section class="panel right">
+      <div class="panel-image">
+    	<img src="heli_drawing.png" alt="Press-fit installation demo">
+      </div>
+    
+<div class="panel-caption">
+  After completing the CAD, I produced a representative engineering drawing packet with orthographic views and annotated dimensions to communicate the design in a manufacturing-ready format.
+This project strengthened my ability to translate real-world objects into clean parametric CAD and professional drawing sets.
+
+      </div>
+
+</div>
+    </section>
+
+
+</main>
+</body>
+</html>
