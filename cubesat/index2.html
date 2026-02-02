@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CubeSat Mission Lead</title>
+
+<style>
+:root {
+  --orange: #FF873D;
+  --teal: #3c8d91;
+  --white:#FFF
+  --tan: #c48f5a;
+  --ink: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin-bottom: 14px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+
+.back-home:hover {
+  background: #f5f5f5;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 18px;
+  max-width: 520px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- PANEL ---------- */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.right {
+  flex-direction: row-reverse;
+}
+
+/* subtle stagger (still comic, but restrained) */
+.panel:nth-child(odd) {
+  margin-left: 8px;
+}
+.panel:nth-child(even) {
+  margin-right: 8px;
+}
+
+/* ---------- IMAGE ---------- */
+.panel-image {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.panel.orange .panel-image { background: var(--orange); }
+.panel.tan .panel-image { background: var(--tan); }
+
+.panel-image img,
+.panel-image video {
+  width: 100%;
+  display: block;
+}
+
+.panel-image iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+/* ---------- MULTI IMAGE PANEL ---------- */
+.panel-gallery {
+  display: flex;
+  gap: 10px;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel-gallery img,
+.panel-gallery video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border: 0px solid var(--ink);
+}
+
+/* 2 images */
+.panel-gallery.two > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.three > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.four > * {
+  flex: 1;
+}
+
+/* Mobile: stack instead */
+@media (max-width: 720px) {
+  .panel-gallery {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.panel.triple {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.triple .panel-image {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.panel.triple .panel-caption {
+  flex: 1;
+  max-width: none;
+}
+
+
+
+
+/* ---------- CAPTION ---------- */
+.panel-caption {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* ---------- CAPTION STACK ---------- */
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Small image row under caption */
+.caption-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.caption-thumbs img {
+  width: 100%;
+  flex: 1;
+  border: 0px solid var(--ink);
+  object-fit: cover;
+  display: block;
+  height: 130px;
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel.right {
+    flex-direction: column;
+  }
+
+  .panel-image {
+    width: 100%;
+  }
+
+  .panel-caption {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="../index.html" class="back-home">← Home</a>
+    <div class="breadcrumb">Home / CubeSat</div>
+  </div>
+
+  <h1>CubeSat Mission Lead</h1>
+  <div class="subtitle">
+Mission lead for Columbia’s CubeSat program, driving flight hardware development from deployable prototyping and machining through ISS safety compliance and launch integration.  </div>
+
+  <div class="story">
+
+    <!-- PANEL 1 -->
+    <section class="panel orange">
+      <div class="panel-image">
+        <img src="cube_team.jpg" alt="">
+      </div>
+      <div class="panel-caption">
+As mission lead for Columbia University’s CubeSat program, I oversee the end-to-end development of both our 1U and 6U spacecraft, coordinating structural, thermal, electrical, and software integration through flight delivery.
+
+Previously, as Structures & Thermal subteam lead for the 1U mission, I designed and built the payload deployment mechanism—taking it from early CAD concepts through aluminum machining, prototyping, and qualification testing to ensure reliable burn-wire deployment within strict CubeSat volume and safety constraints.
+
+      </div>
+    </section>
+
+    <!-- PANEL 3 -->
+    <section class="panel right">
+      <div class="panel-image">
+    	<img src="cube_roaree_2.jpg" alt="Press-fit installation demo">
+      </div>
+      <div class="panel-caption caption-stack">
+The 1U CubeSat (launching April 2026) is a fully flight-approved ISS-deployed mission designed to capture Earth imagery while training students in spacecraft systems engineering.
+
+I led cross-subsystem integration to ensure mechanical packaging, wiring harness routing, camera alignment, and board clearances all met deployer constraints, while maintaining compliance with mass limits and ISS safety requirements.
+
+       </div>
+    </section>
+
+<!-- PANEL 2 -->
+    <section class="panel white">
+      <div class="panel-gallery four">
+    	<img src="cube_design_1.PNG" alt="">
+	<img src="cube_design_2.PNG" alt="">
+	<img src="cube_design_3.png" alt="">
+	<img src="cube_cad.png" alt="">
+      </div>
+      <div class="panel-caption">
+      </div>
+    </section>
+
+<section class="panel triple">
+
+  <!-- Left Image -->
+  <div class="panel-image">
+    <video autoplay loop muted playsinline>
+        <source src="cube_prototype.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Caption Center -->
+  <div class="panel-caption">
+    The deployable payload mechanism underwent multiple prototype iterations to reduce manufacturing complexity, eliminate failure modes, and ensure consistent deployment under vibration and thermal cycling.
+
+I machined final aluminum components, validated fit within the CubeSat envelope, and supported vibration qualification testing.
+
+Following final integration and hardware/software checkouts in Houston with Voyager Space, we delivered the flight-ready spacecraft for launch in April 2026.
+
+
+  </div>
+
+  <!-- Right Image -->
+  <div class="panel-image">
+    <video autoplay loop muted playsinline>
+        <source src="cube_insert.mp4" type="video/mp4">
+    </video>
+  </div>
+
+</section>
+
+    <!-- PANEL 4 -->
+    <section class="panel right white">
+      <div class="panel-image">
+        <img src="cube_6u_1.png" alt="">
+      </div>
+      <div class="panel-caption">
+With the 1U CubeSat delivered for launch, our team is now directing full attention toward our next mission: a 6U spacecraft built around an optical spectrograph payload.
+
+This mission will observe distant galaxies and measure velocity structure in H-alpha gas within the circumgalactic medium, requiring extremely tight pointing stability and careful thermal control to prevent distortion across the instrument’s optical path. The payload drives dramatic thermal gradient constraints as well as strict structural and pointing requirements.
+
+As mission lead, I oversee the systems-level engineering effort across mechanical, electrical, and software teams—maintaining spacecraft power, mass, data, and volume budgets while guiding integration decisions and qualification planning. In parallel, I lead proposal writing, sponsor outreach, and descoping trade studies to keep the mission technically feasible within our funding and launch constraints.
+
+      </div>
+    </section>
+
+    
+  </div>
+
+</main>
+</body>
+</html>
