@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotics Studio</title>
+
+<style>
+:root {
+  --orange: #FF873D;
+  --teal: #3c8d91;
+  --white:#FFF
+  --tan: #c48f5a;
+  --ink: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  margin-bottom: 14px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+
+.back-home:hover {
+  background: #f5f5f5;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 18px;
+  max-width: 520px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- PANEL ---------- */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel.right {
+  flex-direction: row-reverse;
+}
+
+/* subtle stagger (still comic, but restrained) */
+.panel:nth-child(odd) {
+  margin-left: 8px;
+}
+.panel:nth-child(even) {
+  margin-right: 8px;
+}
+
+/* ---------- IMAGE ---------- */
+.panel-image {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.panel.orange .panel-image { background: var(--orange); }
+.panel.tan .panel-image { background: var(--tan); }
+
+.panel-image img,
+.panel-image video {
+  width: 100%;
+  display: block;
+}
+
+.panel-image iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+/* ---------- MULTI IMAGE PANEL ---------- */
+.panel-gallery {
+  display: flex;
+  gap: 10px;
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.panel-gallery img,
+.panel-gallery video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border: 0px solid var(--ink);
+}
+
+/* 2 images */
+.panel-gallery.two > * {
+  flex: 1;
+}
+
+/* 3 images */
+.panel-gallery.three > * {
+  flex: 1;
+}
+
+/* Mobile: stack instead */
+@media (max-width: 720px) {
+  .panel-gallery {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+
+
+/* ---------- CAPTION ---------- */
+.panel-caption {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* ---------- CAPTION STACK ---------- */
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Small image row under caption */
+.caption-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.caption-thumbs img {
+  width: 100%;
+  flex: 1;
+  border: 0px solid var(--ink);
+  object-fit: cover;
+  display: block;
+  height: 130px;
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel.right {
+    flex-direction: column;
+  }
+
+  .panel-image {
+    width: 100%;
+  }
+
+  .panel-caption {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="../index.html" class="back-home">← Home</a>
+    <div class="breadcrumb">Home / Robotics Studio</div>
+  </div>
+
+  <h1>Robotics Studio</h1>
+  <div class="subtitle">
+    Iterative design of a quadruped robot from concept sketches to a walking prototype.
+  </div>
+
+  <div class="story">
+
+    <!-- PANEL 1 -->
+    <section class="panel orange">
+      <div class="panel-image">
+        <iframe 
+      	   src="https://www.youtube.com/embed/jyciNohiS14?si=kDfSoycqVR81a8NR"
+      	   title="Robot Making Video"
+      	   frameborder="0"
+	   referrerpolicy="strict-origin-when-cross-origin"
+      	   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      	   allowfullscreen>
+    	</iframe>
+      </div>
+      <div class="panel-caption">
+        For Robotics Studio, I partnered with a teammate to design, fabricate, and program a four-legged walking robot inspired by DOR-15 from <i>Meet the Robinsons</i>. The embedded video highlights our full design journey and introduces our final robot, RO-81N.
+      </div>
+    </section>
+
+    <!-- PANEL 2 -->
+    <section class="panel right">
+      <div class="panel-image">
+        <video autoplay loop muted playsinline>
+          <source src="sketch.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="panel-caption caption-stack">
+
+    	<p>
+I began the project with early concept sketches to explore leg geometry, motor placement, and internal packaging. We quickly converged on a “hat-bot” form inspired by DOR-15. These sketches established initial dimensions and constraints before moving into CAD.
+    	</p>
+
+    	<!-- Extra images underneath -->
+    	<div class="caption-thumbs">
+      	   <img src="robot_idea_1.jpg" alt="">
+      	   <img src="robot_idea_2.jpg" alt="">
+      	   <img src="robot_idea_3.jpg" alt="">
+    	</div>
+
+       </div>
+    </section>
+
+    <!-- PANEL 3 -->
+    <section class="panel white">
+      <div class="panel-image">
+        <img src="robot_cad.png" alt="">
+      </div>
+      <div class="panel-caption">
+Over two weeks, we iterated on a complete CAD assembly and refined the mechanical architecture. I focused on mounting and packaging the internal electronics using heat-set inserts, including supports for the battery, power converter, bus linker, and motor joints.
+
+The structure incorporated weight-reduction and heat-dissipation cutouts, quick access to the power switch, and magnetic alignment features for easy removal of the hat shell. All parts were optimized for 3D printing and straightforward assembly.
+      </div>
+    </section>
+
+    <!-- PANEL 4 -->
+    <section class="panel right orange">
+      <div class="panel-image">
+        <video autoplay loop muted playsinline>
+          <source src="robot_building_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="panel-caption">
+We transitioned from CAD to fabrication by 3D printing and assembling an initial prototype. This stage required multiple tolerance adjustments and design revisions to improve fit, wiring accessibility, and overall robustness of the assembly.
+      </div>
+    </section>
+
+    <!-- PANEL 5 -->
+    <section class="panel white">
+      <div class="panel-image">
+        <video autoplay loop muted playsinline>
+          <source src="robot_elec.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="panel-caption">
+After validating the electrical system, we soldered the final wiring harness and implemented a walking gait driven by sinusoidal joint trajectories. The chassis was designed to keep the center of mass low, with legs evenly distributed for stability.
+
+While the stride geometry was not optimized purely for speed, the improved balance allowed us to safely increase stride length and cadence during testing.
+      </div>
+    </section>
+
+    <!-- PANEL 6 -->
+    <section class="panel right orange">
+      <div class="panel-image">
+        <video autoplay loop muted playsinline>
+          <source src="robot_paint.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="panel-caption">
+With the mechanical and electrical design finalized, we completed finishing work to bring personality to the robot. We sanded and spray-painted the legs, wrapped the hat piece in black fabric, and integrated an LED ring to enhance expression.
+
+The final robot achieved a walking speed of <b>33.4 cm/s</b> while maintaining stable, repeatable motion.
+      </div>
+    </section>
+
+    <!-- PANEL 6 -->
+    <section class="panel white">
+      <div class="panel-gallery two">
+    	<video autoplay loop muted playsinline>
+          <source src="robot_walking.mp4" type="video/mp4">
+        </video>
+    	<img src="robot_cutout.png" alt="">
+      </div>
+      <div class="panel-caption">
+      </div>
+    </section>
+
+
+  </div>
+
+</main>
+</body>
+</html>
